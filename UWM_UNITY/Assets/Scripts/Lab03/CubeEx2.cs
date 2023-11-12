@@ -6,21 +6,31 @@ using UnityEngine;
 public class CubeEx2 : MonoBehaviour
 {
     public float speed;
-    public Vector3 startingPosition;
+    public Vector3 endPosition;
+    public Vector3 startPosition;
+    Vector3 movePoint;
     
     void Start()
     {
-        startingPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        endPosition = transform.position;
+        endPosition.x += 10;
+        startPosition = transform.position;
+        movePoint = endPosition;
     }
 
     void Update()
     {
-        if(transform.position.x >= startingPosition.x + 10.0f) {
-            speed *= -1.0f;
+        transform.position = Vector3.MoveTowards(transform.position, movePoint, speed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, movePoint) < 0.001f)
+        {
+            if(movePoint == endPosition)
+            {
+                movePoint = startPosition;
+            }
+            else
+            {
+                movePoint = endPosition;
+            }
         }
-        if(transform.position.x < startingPosition.x) {
-            speed *= -1.0f;
-        }
-        transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 }
