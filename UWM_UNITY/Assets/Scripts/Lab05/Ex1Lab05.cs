@@ -25,7 +25,6 @@ public class Ex1Lab05 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("ENTER");
             other.gameObject.transform.parent = transform;
             isRunning = true;
         }
@@ -35,7 +34,6 @@ public class Ex1Lab05 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("EXIT");
             other.gameObject.transform.parent = null;
             isRunning = false;
         }

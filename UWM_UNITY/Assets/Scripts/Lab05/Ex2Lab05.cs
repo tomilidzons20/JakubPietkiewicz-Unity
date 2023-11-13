@@ -39,7 +39,6 @@ public class Ex2Lab05 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("ENTER");
             isOpen = true;
         }
     }
@@ -48,7 +47,6 @@ public class Ex2Lab05 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("EXIT");
             isOpen = false;
         }
     }
